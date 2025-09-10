@@ -1,0 +1,12 @@
+<div class="meals-container">
+  <h2>Our Meals</h2>
+  <div *ngIf="loading">Loading meals...</div>
+  <div class="meals-grid">
+    <div class="meal-card" *ngFor="let meal of meals">
+      <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+      <h3>{{ meal.strMeal }}</h3>
+      <a [routerLink]="['/meal', meal.idMeal]">View Details</a>
+    </div>
+  </div>
+  
+</div>
