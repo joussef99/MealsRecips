@@ -1,0 +1,17 @@
+<div class="favorites-page">
+  <h2>Your Favorite Meals</h2>
+
+  <div *ngIf="favorites.length === 0" class="empty-message">
+    <p>No favorites yet. Go explore and add some!</p>
+    <a routerLink="/meals" class="explore-button">Browse Meals</a>
+  </div>
+
+  <div class="meal-grid" *ngIf="favorites.length > 0">
+    <div class="meal-card" *ngFor="let meal of favorites">
+      <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+      <h3>{{ meal.strMeal }}</h3>
+      <a [routerLink]="['/meal', meal.idMeal]">View Details</a>
+      <button (click)="remove(meal.idMeal)">Remove</button>
+    </div>
+  </div>
+</div>

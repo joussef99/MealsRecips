@@ -1,0 +1,40 @@
+<div class="meal-details" *ngIf="meal">
+  <div class="meal-header">
+    <h1>{{ meal.strMeal }}</h1>
+    <div class="meal-meta">
+      <span class="area">{{ meal.strArea }}</span>
+      <span class="category">{{ meal.strCategory }}</span>
+    </div>
+    <div class="meal-actions">
+    <button class="fav-btn" (click)="addToFavorites()">❤️ Add to Favorites</button>
+    <a class="youtube-link" [href]="meal.strYoutube" target="_blank">▶ Watch on YouTube</a>
+    </div>
+  </div>
+
+  <!-- Image + Ingredients -->
+  <div class="meal-top">
+    <div class="meal-img">
+      <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+    </div>
+
+    <div class="ingredients">
+      <h3>Ingredients</h3>
+      <div class="ingredients-grid">
+        <div class="ingredient-item" *ngFor="let i of [].constructor(20); let idx = index">
+          <ng-container *ngIf="meal['strIngredient' + (idx + 1)]">
+            <span class="ingredient-icon">🍴</span>
+            <span>
+              {{ meal['strIngredient' + (idx + 1)] }} - {{ meal['strMeasure' + (idx + 1)] }}
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="instructions">
+    <h3>Instructions</h3>
+    <p>{{ meal.strInstructions }}</p>
+  </div>
+</div>

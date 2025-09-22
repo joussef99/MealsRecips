@@ -1,0 +1,14 @@
+<section class="random-meal-section">
+  <h2>Discover a Random Meal</h2>
+  <button (click)="getRandomMeal()" class="random-btn">🎲 Get Another</button>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <div *ngIf="meal" class="meal-card">
+    <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+    <h3>{{ meal.strMeal }}</h3>
+    <p><strong>Category:</strong> {{ meal.strCategory }}</p>
+    <p><strong>Area:</strong> {{ meal.strArea }}</p>
+    <a [routerLink]="['/meal', meal.idMeal]">View Details</a>
+  </div>
+</section>

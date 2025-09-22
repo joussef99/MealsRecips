@@ -1,14 +1,13 @@
 <nav class="navbar">
   <div class="navbar-logo">🍽️ Meals</div>
   <ul class="navbar-links">
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/meals">Meals</a></li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
-  </ul>
+      <li><a routerLink="/home" routerLinkActive="active-link">Home</a></li>
+      <li><a routerLink="/meals" routerLinkActive="active-link">Meals</a></li>
+      <li><a routerLink="/categories" routerLinkActive="active-link">Category</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
+    </ul>
   <div class="navbar-actions">
-    <a routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
-    <button class="fav-btn"> Your Meals </button>
-    <button class="logout-btn" (click)="logout()">Logout</button>
+    <a routerLink="/favourits"><i class="fas fa-heart"></i></a>
+    <button class="logout-btn" (click)="auth.logout(); router.navigate(['/login'])">Logout</button>
   </div>
 </nav>

@@ -1,0 +1,63 @@
+.slider-section {
+  padding: 32px;
+  text-align: center;
+  background: #f8f9fa;
+}
+
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 16px;
+  scrollbar-width: none;
+}
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.meal-card {
+  flex: 0 0 auto;
+  width: 240px;
+  background: linear-gradient(145deg, #ffffff, antiquewhite);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.meal-card:hover {
+  transform: scale(1.05);
+}
+
+.meal-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.meal-card h3 {
+  margin: 8px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.meal-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.meal-card a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: #e63946;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.meal-card a:hover {
+  background-color: #d62828;
+}

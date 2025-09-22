@@ -1,0 +1,39 @@
+<div class="auth-container">
+  <h2>Register</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Full Name" />
+    <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="error">
+      Name is required
+    </div>
+
+    <input type="text" formControlName="username" placeholder="Username" />
+    <div *ngIf="form.get('username')?.touched && form.get('username')?.invalid" class="error">
+      Username is required
+    </div>
+
+    <input type="email" formControlName="email" placeholder="Email" />
+    <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="error">
+      Valid email is required
+    </div>
+
+    <input type="text" formControlName="phone" placeholder="Phone (e.g. 01012345678)" />
+    <div *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid" class="error">
+      Valid Egyptian phone number is required
+    </div>
+
+    <input type="password" formControlName="password" placeholder="Password" />
+    <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="error">
+      Minimum 6 characters
+    </div>
+
+    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+    <div *ngIf="form.errors?.['mismatch'] && form.get('confirmPassword')?.touched" class="error">
+      Passwords must match
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <a routerLink="/login" class="link">Already have an account? Login</a>
+</div>

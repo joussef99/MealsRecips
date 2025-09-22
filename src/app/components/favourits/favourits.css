@@ -1,0 +1,66 @@
+.favorites-page {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.empty-message {
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.explore-button {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e63946;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.meal-card {
+  background: linear-gradient(145deg, #ffffff, antiquewhite);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  text-align: center;
+}
+
+.meal-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.meal-card h3 {
+  margin: 12px 0;
+}
+
+.meal-card button {
+  background-color: f8f9fa;
+  color: #e63946;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.meal-card button:hover {
+  background-color: #c71f30;
+  color: #fff;
+}
+
+.meal-card a {
+  display: block;
+  margin: 12px;
+  text-decoration: none;
+  color: #e63946;
+  font-weight: bold;
+}

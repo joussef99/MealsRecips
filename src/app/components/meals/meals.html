@@ -1,12 +1,69 @@
-<div class="meals-container">
-  <h2>Our Meals</h2>
-  <div *ngIf="loading">Loading meals...</div>
-  <div class="meals-grid">
-    <div class="meal-card" *ngFor="let meal of meals">
-      <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
-      <h3>{{ meal.strMeal }}</h3>
-      <a [routerLink]="['/meal', meal.idMeal]">View Details</a>
+<div class="meals-page">
+  <!-- Sidebar Filters -->
+  <aside class="sidebar">
+    <h3>Filter Meals</h3>
+
+    <label for="category">Category</label>
+    <select id="category" [(ngModel)]="selectedCategory" (change)="onFilterChange()">
+      <option value="">All Categories</option>
+      <option *ngFor="let cat of categories" [value]="cat.strCategory">
+        {{ cat.strCategory }}
+      </option>
+    </select>
+
+    <label for="area">Area</label>
+    <select id="area" [(ngModel)]="selectedArea" (change)="onFilterChange()">
+      <option value="">All Areas</option>
+      <option *ngFor="let area of areas" [value]="area.strArea">
+        {{ area.strArea }}
+      </option>
+    </select>
+
+    <label for="ingredient">Ingredient</label>
+    <select id="ingredient" [(ngModel)]="selectedIngredient" (change)="onFilterChange()">
+      <option value="">All Ingredients</option>
+      <option *ngFor="let ing of ingredients" [value]="ing.strIngredient">
+        {{ ing.strIngredient }}
+      </option>
+    </select>
+  </aside>
+
+  <!-- Main Content -->
+  <section class="meals-content">
+    <!-- Search by First Letter -->
+    <div class="letter-search">
+      <label>Search by First Letter:</label>
+      <div class="letter-buttons">
+        <button *ngFor="let l of alphabet" (click)="searchByLetter(l)">
+          {{ l }}
+        </button>
+      </div>
     </div>
-  </div>
-  
+
+    <div class="search-bar">
+      <input type="text" [formControl]="searchControl" placeholder="Search meals by name..." />
+    </div>
+    
+    <div class="active-filters" *ngIf="selectedCategory || selectedArea || selectedIngredient">
+      <span *ngIf="selectedCategory" class="filter-tag"> Category: {{ selectedCategory }} </span>
+      <span *ngIf="selectedArea" class="filter-tag"> Area: {{ selectedArea }} </span>
+      <span *ngIf="selectedIngredient" class="filter-tag">
+        Ingredient: {{ selectedIngredient }}
+      </span>
+      <button class="clear-btn" (click)="clearFilters()">Clear All Filters</button>
+    </div>
+
+    <!-- Meals Grid -->
+    <div class="meals-grid" *ngIf="meals && meals.length > 0; else noMeals">
+      <div class="meal-card" *ngFor="let meal of meals">
+        <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+        <h4>{{ meal.strMeal }}</h4>
+        <a [routerLink]="['/meal', meal.idMeal]">View Details</a>
+      </div>
+    </div>
+
+    <ng-template #noMeals>
+      <p style="text-align: center; font-size: 18px">No meals found for this filter.</p>
+    </ng-template>
+  </section>
 </div>

@@ -1,0 +1,19 @@
+<section class="slider-section">
+  <h2>Explore Categories</h2>
+  <div
+    class="slider-container"
+    #slider
+    (mouseenter)="pauseAutoSlide()"
+    (mouseleave)="resumeAutoSlide()"
+  >
+    <a
+    class="category-card"
+    *ngFor="let cat of categories"
+    [routerLink]="['/category', cat.strCategory]"
+    >
+    <img [src]="cat.strCategoryThumb" [alt]="cat.strCategory" />
+    <h3>{{ cat.strCategory }}</h3>
+    <p>{{ cat.strCategoryDescription | slice:0:80 }}...</p>
+  </a>
+  </div>
+</section>

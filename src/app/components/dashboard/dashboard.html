@@ -1,0 +1,19 @@
+<div class="dashboard-container">
+  <h2>Welcome, {{ username }}</h2>
+
+  <div class="dashboard-grid">
+    <a routerLink="/meals" class="dashboard-card">
+      <i class="icon">🍽️</i>
+      <h3>Browse Meals</h3>
+      <p>Explore delicious dishes and discover new favorites.</p>
+    </a>
+
+    <a routerLink="/favourits" class="dashboard-card">
+      <i class="icon">❤️</i>
+      <h3>Your Favorites</h3>
+      <p>View and manage your saved meals.</p>
+    </a>
+  </div>
+
+  <button class="logout-button" (click)="logout()">Logout</button>
+</div>

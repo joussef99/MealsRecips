@@ -1,0 +1,10 @@
+<section class="category-meals">
+  <h2>Meals in "{{ categoryName }}"</h2>
+  <div class="meals-grid">
+    <div class="meal-card" *ngFor="let meal of meals">
+      <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+      <h3>{{ meal.strMeal }}</h3>
+      <a [routerLink]="['/meal', meal.idMeal]">View Details</a>
+    </div>
+  </div>
+</section>

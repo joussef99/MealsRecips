@@ -1,0 +1,13 @@
+<section class="slider-section">
+  <h2>Top Rated Meals</h2>
+  <div class="slider-container">
+    <div class="meal-card" *ngFor="let meal of meals">
+      <img [src]="meal.strMealThumb" [alt]="meal.strMeal" />
+      <h3>{{ meal.strMeal }}</h3>
+      <p>{{ meal.strCategory }}</p>
+      <!-- <p><strong>Category:</strong> {{ meal.strCategory }}</p>
+      <p><strong>Area:</strong> {{ meal.strArea }}</p> -->
+      <a [routerLink]="['/meal', meal.idMeal]">View Details</a>
+    </div>
+  </div>
+</section>
